@@ -1,0 +1,22 @@
+package com.smt.cipher;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+import com.smt.cipher.unsymmetry.RSAUtils;
+
+public class MainRSA2_use {
+
+	static String  publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnjjUJx1gMwqcwwRrMd4PjDOcuUE88QHlmr5zAEjSy8-4KY87A1XqpWNCMbfLOenPEFmfoc0HZdLxxlwHMpG1CAZPraUmKfDB4L3rI_qp67-R0n3KnnzPb2Hn0jFKlVbVJA7AHCgX2mXgz866VmSzHXX67gQkU29wmqOGCkajg8QIDAQAB";
+	static String privateKey = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKeONQnHWAzCpzDBGsx3g-MM5y5QTzxAeWavnMASNLLz7gpjzsDVeqlY0Ixt8s56c8QWZ-hzQdl0vHGXAcykbUIBk-tpSYp8MHgvesj-qnrv5HSfcqefM9vYefSMUqVVtUkDsAcKBfaZeDPzrpWZLMddfruBCRTb3Cao4YKRqODxAgMBAAECgYBo46rsHjBOfKQw7xGZoc-cGP23jmqrqyjUUWbtDfiTdgQz2Nsa-Ai7bm_PGR0AiMNjoysU5uH4AQ3ehcuIkf4aZUBeJrbI05-nv5U1WBfWCtcgXJlt75TJ_Nm0gZ1OIGyXlPw152EgED4e7PR6Ql1C88lVOUGblR1mU5dDkGNcyQJBAP2lp2EgZWdTrlmSB-GxuQlF4nJO6W7qpa7-pKUSMAvW8M8B1m3qnypUrtxyY4gHTS0paag7apOCzN-o2BV0sP8CQQCpHButedrsZk7p1Wecm9GfDWwgeU09QrMjTlnhBocy6d0LXF29WMiUrVcrp-1I-NDnr6Fgp38Vz9Noqr_6S34PAkAHONI9N7jrajyKnFfRG0hTdUPvUUPgPpodE28IrC3mCGau3jSGyKljgSnBaRhgZSTTZlx1x8tPC-hdbedJJRttAkAo6Bi13O0dFB5wp-OZWYPacpe-Pzl04SaOGszZBwg7Q6Dpt50hSVGzzT5x2_wlE7MM6EokJEA0mYItJmir9gj3AkBks-kzn-DT3tKeTpFjJsCOmo1RrSzhFZV48aZqw6TSuRyuspJ0mMfwKY95MtdoD2RxGnW77uecLOjwO1HGh3Ly";
+	
+	public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	
+		String ciphertext = RSAUtils.privateEncrypt("测试数RSA",  RSAUtils.getPrivateKey(privateKey  ) );
+		System.out.println( ciphertext );
+		System.out.println( RSAUtils.publicDecrypt(ciphertext,  RSAUtils.getPublicKey(publicKey) ) );
+		
+		
+	}
+
+}
